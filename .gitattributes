@@ -1,0 +1,9 @@
+# Force consistent LF line endings for all text files, regardless of a
+# cloning machine's core.autocrlf setting, so file hashes stay reproducible
+# across platforms.
+* text=auto eol=lf
+
+# Binary files: never touch line endings.
+*.pdf binary
+*.png binary
+*.eml binary
