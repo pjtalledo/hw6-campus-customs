@@ -1,9 +1,19 @@
-# Force consistent LF line endings for all text files, regardless of a
-# cloning machine's core.autocrlf setting, so file hashes stay reproducible
-# across platforms.
-* text=auto eol=lf
+# Force consistent LF line endings for source files, regardless of a
+# cloning machine's core.autocrlf setting, so source-file hashes stay
+# reproducible across platforms.
+*.py text eol=lf
+*.md text eol=lf
 
-# Binary files: never touch line endings.
+# Generated data/output artifacts (JSON, HTML report) were originally
+# written by Python in Windows text mode, so their committed bytes already
+# contain CRLF line endings, and test_trusted_approval.py's frozen baseline
+# hashes were recorded against that exact content. Leave them untouched on
+# checkout -- do not let git's text-normalization rewrite their bytes.
+data/**/*.json -text
+output/**/*.json -text
+output/*.html -text
+
+# True binary files: never touch line endings.
 *.pdf binary
 *.png binary
 *.eml binary
