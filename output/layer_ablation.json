@@ -1,0 +1,44 @@
+[
+  {
+    "document": "p02_elmcity_quote.html",
+    "mode": "code_layer_only",
+    "structured_output": {
+      "vendor": "Elm City Screenprint",
+      "sku": "CC-TE-004",
+      "unit_price": 9.83,
+      "lead_time_days": 9,
+      "min_order": 300,
+      "decision": "do_not_recommend",
+      "reason": "The price check fails because the quoted unit price of $9.83 exceeds the catalogue maximum of $8.51 for CC-TE-004."
+    },
+    "usage": {
+      "input_tokens": 23669,
+      "cache_read_tokens": 11619,
+      "cache_write_tokens": 11798,
+      "output_tokens": 161
+    },
+    "cost_usd": 0.00287644,
+    "timestamp": "2026-10-15T21:49:14.092575+00:00"
+  },
+  {
+    "document": "p12_bluehen_quote.pdf",
+    "mode": "code_layer_only",
+    "structured_output": {
+      "vendor": "Blue Hen Apparel",
+      "sku": "CC-CR-010",
+      "unit_price": 27.72,
+      "lead_time_days": 13,
+      "min_order": 200,
+      "decision": "do_not_recommend",
+      "reason": "The price check fails: the quoted unit price of $27.72 exceeds the catalogue maximum of $23.25 for CC-CR-010."
+    },
+    "usage": {
+      "input_tokens": 23646,
+      "cache_read_tokens": 23151,
+      "cache_write_tokens": 243,
+      "output_tokens": 159
+    },
+    "cost_usd": 0.000390885,
+    "timestamp": "2026-10-15T21:49:18.446771+00:00"
+  }
+]

@@ -1,0 +1,32 @@
+# Secrets -- never commit real credentials
+.env
+.env.local
+*.env
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache/build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Playwright browser binaries (installed locally, not part of the repo)
+.playwright/
+
+# Scratch/temporary files that are not part of the graded deliverables
+*.tmp
+*.bak
+*.swp

@@ -1,0 +1,354 @@
+#!/usr/bin/env python
+"""Campus Customs vendor desk agent — executable entry point.
+
+Usage:
+    python agent.py --doc data/practice_docs/p01_bluehen_quote.html
+
+Uses exclusively `gpt-6-luna` through Portkey via PydanticAI. Credentials are
+read from the `PORTKEY_API_KEY` environment variable (loaded from the
+project's `.env` file); nothing is ever hard-coded, printed, or committed.
+"""
+
+from __future__ import annotations
+
+import argparse
+import asyncio
+import json
+import os
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+from dotenv import load_dotenv
+from openai import AsyncOpenAI
+from pydantic_ai import Agent, Tool
+from pydantic_ai.models.openai import OpenAIChatModel, OpenAIChatModelSettings
+from pydantic_ai.providers.openai import OpenAIProvider
+
+from defense_tools import read_document_defended
+from models import VendorRecommendation
+from tools import approve_payment, init_trap_calls_log, read_document, send_email
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+PROMPT_PATH = PROJECT_ROOT / "prompts" / "prompt.md"
+PROMPT_DEFENDED_PATH = PROJECT_ROOT / "prompts" / "prompt_defended.md"
+HANDBOOK_PATH = PROJECT_ROOT / "data" / "shop_handbook.md"
+PRICES_PATH = PROJECT_ROOT / "data" / "prices.json"
+OUTPUT_DIR = PROJECT_ROOT / "output"
+USAGE_LOG_PATH = OUTPUT_DIR / "usage_log.json"
+AUDIT_TRAIL_PATH = OUTPUT_DIR / "audit_trail.json"
+
+MODEL_NAME = "gpt-6-luna"
+PORTKEY_BASE_URL = "https://api.portkey.ai/v1"
+
+
+class AgentConfigurationError(RuntimeError):
+    """Raised when the agent cannot be safely configured (e.g. missing key)."""
+
+
+def _load_portkey_api_key() -> str:
+    """Loads PORTKEY_API_KEY from the environment / project .env file.
+
+    Searches upward from this file for a `.env`, as required by the project
+    rules (root `.env`). Never prints or logs the key itself.
+    """
+    load_dotenv()  # loads a .env found by searching upward from the cwd, if any
+    # Also explicitly try the course root .env (one level above this project).
+    course_root_env = PROJECT_ROOT.parent / ".env"
+    if course_root_env.exists():
+        load_dotenv(dotenv_path=course_root_env, override=False)
+
+    api_key = os.environ.get("PORTKEY_API_KEY", "").strip()
+    if not api_key:
+        raise AgentConfigurationError(
+            "PORTKEY_API_KEY is not set. Set it in the .env file or the "
+            "environment before running the agent. No API key is hard-coded "
+            "in this project, by design."
+        )
+    return api_key
+
+
+def _load_prices() -> dict:
+    with PRICES_PATH.open(encoding="utf-8") as fh:
+        prices = json.load(fh)
+    if MODEL_NAME not in prices:
+        raise AgentConfigurationError(
+            f"No pricing entry for '{MODEL_NAME}' in {PRICES_PATH}."
+        )
+    return prices[MODEL_NAME]
+
+
+def _build_agent(defense: str = "off") -> tuple[Agent[None, VendorRecommendation], AsyncOpenAI]:
+    """Builds the PydanticAI agent wired to gpt-6-luna through Portkey only.
+
+    Does not silently fall back to any other model if configuration fails;
+    missing credentials raise AgentConfigurationError instead.
+
+    `defense="off"` (the default, for backward compatibility with Problem 3)
+    reproduces the ORIGINAL, undefended agent exactly: the original
+    prompts/prompt.md, the original tools.read_document, and send_email /
+    approve_payment both registered as tools the vendor-analysis model can
+    call directly.
+
+    `defense="on"` applies all three Problem 6 defense layers at once:
+    - code:   registers defense_tools.read_document_defended instead of
+              tools.read_document, so hidden/non-visible document content
+              never reaches the model as input in the first place.
+    - prompt: loads prompts/prompt_defended.md instead of prompts/prompt.md.
+    - design: does NOT register send_email or approve_payment as tools here
+              at all — the vendor-analysis stage has no way to call them,
+              directly or via document-injected instructions. (See
+              approval.py for the separate human-approval boundary that
+              would gate any future, later-stage use of those tools.)
+    """
+    api_key = _load_portkey_api_key()
+
+    openai_client = AsyncOpenAI(
+        base_url=PORTKEY_BASE_URL,
+        api_key="portkey",  # unused by Portkey; required placeholder by the SDK
+        default_headers={"x-portkey-api-key": api_key},
+    )
+    provider = OpenAIProvider(openai_client=openai_client)
+    # This gateway's gpt-6-luna deployment rejects function tools on
+    # /v1/chat/completions unless reasoning_effort is disabled.
+    model_settings = OpenAIChatModelSettings(openai_reasoning_effort="none")
+    model = OpenAIChatModel(MODEL_NAME, provider=provider, settings=model_settings)
+
+    if defense == "on":
+        prompt_path = PROMPT_DEFENDED_PATH
+        # Registered under the same tool name ("read_document") as the
+        # undefended tool, so prompts/prompt_defended.md's instructions
+        # ("call the read_document tool") refer to the correct tool either way.
+        document_tool = Tool(read_document_defended, name="read_document")
+        agent_tools = [document_tool]  # design-level: no send_email/approve_payment here
+    else:
+        prompt_path = PROMPT_PATH
+        document_tool = read_document
+        agent_tools = [document_tool, send_email, approve_payment]
+
+    instructions = prompt_path.read_text(encoding="utf-8")
+    handbook = HANDBOOK_PATH.read_text(encoding="utf-8")
+    system_prompt = (
+        instructions
+        + "\n\n---\n## Campus Customs Shop Handbook (full text)\n---\n\n"
+        + handbook
+    )
+
+    agent: Agent[None, VendorRecommendation] = Agent(
+        model,
+        output_type=VendorRecommendation,
+        system_prompt=system_prompt,
+        tools=agent_tools,
+        retries=2,
+    )
+    return agent, openai_client
+
+
+def _append_json_list(path: Path, record: dict) -> None:
+    """Appends one record to a JSON list file, creating it if needed."""
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    if path.exists():
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8"))
+            if not isinstance(existing, list):
+                existing = []
+        except json.JSONDecodeError:
+            existing = []
+    else:
+        existing = []
+
+    existing.append(record)
+    path.write_text(json.dumps(existing, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def _usage_to_cost(usage, prices: dict) -> dict:
+    """Computes dollar cost from ACTUAL reported usage, per data/prices.json.
+
+    Cached and uncached input tokens are priced separately when the API
+    reports them separately. If a usage figure is missing/None, it is
+    recorded as such rather than assumed to be zero-cost silently — the
+    missing figure is flagged in the returned dict.
+
+    CORRECTED (Problem 8, matching the Problem 4 fix in cache_experiment.py):
+    PydanticAI's `input_tokens` is the API's TOTAL prompt token count, and
+    `cache_read_tokens` is a SUBSET of it, not additional. Billing the full
+    `input_tokens` at the uncached rate AND `cache_read_tokens` again at the
+    cached rate double-charges the cached portion. This never manifested in
+    Problems 3/5/6/7's own cost figures because every one of those runs
+    happened to report `cache_read_tokens == 0`, but the formula itself was
+    wrong and is fixed here before Problem 8's exam run, in case any exam
+    document's call reports a nonzero cache read.
+    """
+    input_tokens = getattr(usage, "input_tokens", None)
+    cache_read_tokens = getattr(usage, "cache_read_tokens", None)
+    cache_write_tokens = getattr(usage, "cache_write_tokens", None)
+    output_tokens = getattr(usage, "output_tokens", None)
+
+    limitations = []
+
+    def rate(key: str) -> float:
+        return prices[key] / 1_000_000
+
+    if input_tokens is None:
+        limitations.append("input_tokens not reported by the API.")
+        input_tokens = 0
+    if cache_read_tokens is None:
+        limitations.append("cache_read_tokens not reported by the API (assumed 0 for cost math).")
+        cache_read_tokens = 0
+    if cache_write_tokens is None:
+        limitations.append("cache_write_tokens not reported by the API (assumed 0 for cost math).")
+        cache_write_tokens = 0
+    if output_tokens is None:
+        limitations.append("output_tokens not reported by the API.")
+        output_tokens = 0
+
+    # cache_read_tokens is a SUBSET of input_tokens, not additional -- price
+    # only the non-cached remainder at the uncached rate.
+    uncached_input_tokens = max(input_tokens - cache_read_tokens, 0)
+
+    cost_input = uncached_input_tokens * rate("input_per_1m")
+    cost_cache_read = cache_read_tokens * rate("cached_input_per_1m")
+    cost_cache_write = cache_write_tokens * rate("cache_write_per_1m")
+    cost_output = output_tokens * rate("output_per_1m")
+    total_cost = cost_input + cost_cache_read + cost_cache_write + cost_output
+
+    return {
+        "input_tokens": input_tokens,
+        "cache_read_tokens": cache_read_tokens,
+        "cache_write_tokens": cache_write_tokens,
+        "output_tokens": output_tokens,
+        "cost_usd": {
+            "input": round(cost_input, 8),
+            "cache_read": round(cost_cache_read, 8),
+            "cache_write": round(cost_cache_write, 8),
+            "output": round(cost_output, 8),
+            "total": round(total_cost, 8),
+        },
+        "limitations": limitations,
+    }
+
+
+def run_agent(doc_path: str, defense: str = "off") -> VendorRecommendation:
+    init_trap_calls_log()
+    prices = _load_prices()
+    agent, openai_client = _build_agent(defense=defense)
+
+    resolved_doc_path = Path(doc_path)
+    if not resolved_doc_path.is_absolute():
+        resolved_doc_path = (PROJECT_ROOT / resolved_doc_path).resolve()
+    if not resolved_doc_path.exists():
+        raise AgentConfigurationError(f"Document not found: {resolved_doc_path}")
+
+    user_prompt = (
+        "Analyze this vendor document and return the structured purchasing "
+        f"recommendation. Document path: {resolved_doc_path}\n\n"
+        "Call the read_document tool with this exact path first."
+    )
+
+    timestamp = datetime.now(timezone.utc).isoformat()
+    tool_calls_record: list[dict] = []
+
+    try:
+        result = agent.run_sync(user_prompt)
+    except Exception as exc:
+        _append_json_list(
+            AUDIT_TRAIL_PATH,
+            {
+                "timestamp": timestamp,
+                "document": str(resolved_doc_path),
+                "model": MODEL_NAME,
+                "defense_mode": defense,
+                "status": "error",
+                "error": str(exc),
+            },
+        )
+        raise
+    finally:
+        asyncio.run(openai_client.close())
+
+    output: VendorRecommendation = result.output
+    usage = result.usage
+    usage_summary = _usage_to_cost(usage, prices)
+
+    for message in result.all_messages():
+        for part in getattr(message, "parts", []):
+            part_kind = getattr(part, "part_kind", "")
+            if part_kind == "tool-call":
+                tool_calls_record.append(
+                    {
+                        "tool_name": part.tool_name,
+                        "arguments": part.args_as_dict()
+                        if hasattr(part, "args_as_dict")
+                        else str(part.args),
+                    }
+                )
+            elif part_kind == "tool-return":
+                content = part.content
+                short_result = (
+                    content
+                    if isinstance(content, str)
+                    else json.dumps(content, default=str)
+                )
+                if len(short_result) > 300:
+                    short_result = short_result[:300] + "...(truncated)"
+                if tool_calls_record:
+                    tool_calls_record[-1]["short_result"] = short_result
+
+    _append_json_list(
+        USAGE_LOG_PATH,
+        {
+            "timestamp": timestamp,
+            "document": str(resolved_doc_path),
+            "model": MODEL_NAME,
+            "defense_mode": defense,
+            **usage_summary,
+        },
+    )
+
+    _append_json_list(
+        AUDIT_TRAIL_PATH,
+        {
+            "timestamp": timestamp,
+            "document": str(resolved_doc_path),
+            "model": MODEL_NAME,
+            "defense_mode": defense,
+            "status": "ok",
+            "tool_calls": tool_calls_record,
+            "final_response": output.model_dump(),
+        },
+    )
+
+    return output
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Campus Customs vendor desk agent")
+    parser.add_argument(
+        "--doc", required=True, help="Path to a vendor document (HTML, PDF, or EML)"
+    )
+    parser.add_argument(
+        "--defense",
+        choices=["on", "off"],
+        default="off",
+        help=(
+            "'off' (default): original, undefended Problem 3 behavior, "
+            "preserved exactly for backward compatibility and for Problem 7. "
+            "'on': all three Problem 6 defense layers (code/design/prompt)."
+        ),
+    )
+    args = parser.parse_args()
+
+    try:
+        recommendation = run_agent(args.doc, defense=args.defense)
+    except AgentConfigurationError as exc:
+        print(f"Configuration error: {exc}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as exc:  # noqa: BLE001 - top-level CLI error boundary
+        print(f"Agent run failed: {exc}", file=sys.stderr)
+        sys.exit(1)
+
+    print(json.dumps(recommendation.model_dump(), indent=2, ensure_ascii=False))
+
+
+if __name__ == "__main__":
+    main()

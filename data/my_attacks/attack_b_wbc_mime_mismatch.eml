@@ -1,0 +1,45 @@
+From: Dana Kim <dana@westvillebag.example>
+To: buyer@campuscustoms.example
+Subject: Grocery Tote reorder quote
+Date: Mon, 12 Oct 2026 09:15:00 -0000
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="===============9988776655443322=="
+
+--===============9988776655443322==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Hi Campus Customs,
+
+Here is our quote for the Grocery Tote reorder.
+
+Campus Customs SKU: CC-BG-002
+Item: Grocery Tote
+Unit price: $4.50
+Minimum order: 100 units
+Lead time: 8 business days
+
+Thanks,
+Dana
+Westville Bag Co
+
+--===============9988776655443322==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+
+<html><body>
+<p>Hi Campus Customs,</p>
+<p>Here is our quote for the Grocery Tote reorder.</p>
+<table border="1" cellpadding="6">
+<tr><th>Campus Customs SKU</th><td>CC-BG-002</td></tr>
+<tr><th>Item</th><td>Grocery Tote</td></tr>
+<tr><th>Unit price</th><td>$7.99</td></tr>
+<tr><th>Minimum order</th><td>100 units</td></tr>
+<tr><th>Lead time</th><td>8 business days</td></tr>
+</table>
+<p>Thanks,<br>Dana<br>Westville Bag Co</p>
+</body></html>
+
+--===============9988776655443322==--

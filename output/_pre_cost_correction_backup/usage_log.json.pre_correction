@@ -1,0 +1,852 @@
+[
+  {
+    "timestamp": "2026-10-15T18:59:52.413127+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p01_bluehen_quote.html",
+    "model": "gpt-6-luna",
+    "input_tokens": 23640,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 23388,
+    "output_tokens": 176,
+    "cost_usd": {
+      "input": 0.002364,
+      "cache_read": 0.0,
+      "cache_write": 0.0029235,
+      "output": 8.8e-05,
+      "total": 0.0053755
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T19:00:06.332016+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p08_chapelst_email.eml",
+    "model": "gpt-6-luna",
+    "input_tokens": 23634,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 23382,
+    "output_tokens": 184,
+    "cost_usd": {
+      "input": 0.0023634,
+      "cache_read": 0.0,
+      "cache_write": 0.00292275,
+      "output": 9.2e-05,
+      "total": 0.00537815
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:19:47.342162+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p01_bluehen_quote.html",
+    "model": "gpt-6-luna",
+    "input_tokens": 23640,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 23388,
+    "output_tokens": 176,
+    "cost_usd": {
+      "input": 0.002364,
+      "cache_read": 0.0,
+      "cache_write": 0.0029235,
+      "output": 8.8e-05,
+      "total": 0.0053755
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:19:57.645411+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p02_elmcity_quote.html",
+    "model": "gpt-6-luna",
+    "input_tokens": 23643,
+    "cache_read_tokens": 11591,
+    "cache_write_tokens": 11800,
+    "output_tokens": 176,
+    "cost_usd": {
+      "input": 0.0023643,
+      "cache_read": 0.00011591,
+      "cache_write": 0.001475,
+      "output": 8.8e-05,
+      "total": 0.00404321
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:20:11.102306+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p03_ivyprint_catalog.html",
+    "model": "gpt-6-luna",
+    "input_tokens": 23641,
+    "cache_read_tokens": 23096,
+    "cache_write_tokens": 293,
+    "output_tokens": 165,
+    "cost_usd": {
+      "input": 0.0023641,
+      "cache_read": 0.00023096,
+      "cache_write": 3.662e-05,
+      "output": 8.25e-05,
+      "total": 0.00271419
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:20:24.315243+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p04_harborstitch_quote.html",
+    "model": "gpt-6-luna",
+    "input_tokens": 23633,
+    "cache_read_tokens": 23098,
+    "cache_write_tokens": 283,
+    "output_tokens": 176,
+    "cost_usd": {
+      "input": 0.0023633,
+      "cache_read": 0.00023098,
+      "cache_write": 3.537e-05,
+      "output": 8.8e-05,
+      "total": 0.00271765
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:20:37.038392+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p05_maplemills_quote.pdf",
+    "model": "gpt-6-luna",
+    "input_tokens": 23609,
+    "cache_read_tokens": 23096,
+    "cache_write_tokens": 261,
+    "output_tokens": 154,
+    "cost_usd": {
+      "input": 0.0023609,
+      "cache_read": 0.00023096,
+      "cache_write": 3.263e-05,
+      "output": 7.7e-05,
+      "total": 0.00270149
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:20:49.182276+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p06_qtextile_quote.pdf",
+    "model": "gpt-6-luna",
+    "input_tokens": 23653,
+    "cache_read_tokens": 23096,
+    "cache_write_tokens": 305,
+    "output_tokens": 162,
+    "cost_usd": {
+      "input": 0.0023653,
+      "cache_read": 0.00023096,
+      "cache_write": 3.812e-05,
+      "output": 8.1e-05,
+      "total": 0.00271539
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:21:02.464641+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p07_longwharf_quote.pdf",
+    "model": "gpt-6-luna",
+    "input_tokens": 23628,
+    "cache_read_tokens": 23096,
+    "cache_write_tokens": 280,
+    "output_tokens": 178,
+    "cost_usd": {
+      "input": 0.0023628,
+      "cache_read": 0.00023096,
+      "cache_write": 3.5e-05,
+      "output": 8.9e-05,
+      "total": 0.00271776
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:21:15.263889+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p08_chapelst_email.eml",
+    "model": "gpt-6-luna",
+    "input_tokens": 23634,
+    "cache_read_tokens": 0,
+    "cache_write_tokens": 23382,
+    "output_tokens": 184,
+    "cost_usd": {
+      "input": 0.0023634,
+      "cache_read": 0.0,
+      "cache_write": 0.00292275,
+      "output": 9.2e-05,
+      "total": 0.00537815
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:21:24.257534+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p09_westville_email.eml",
+    "model": "gpt-6-luna",
+    "input_tokens": 23630,
+    "cache_read_tokens": 23097,
+    "cache_write_tokens": 281,
+    "output_tokens": 153,
+    "cost_usd": {
+      "input": 0.002363,
+      "cache_read": 0.00023097,
+      "cache_write": 3.512e-05,
+      "output": 7.65e-05,
+      "total": 0.0027056
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:21:36.405792+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p10_eastrock_email.eml",
+    "model": "gpt-6-luna",
+    "input_tokens": 23653,
+    "cache_read_tokens": 23097,
+    "cache_write_tokens": 304,
+    "output_tokens": 192,
+    "cost_usd": {
+      "input": 0.0023653,
+      "cache_read": 0.00023097,
+      "cache_write": 3.8e-05,
+      "output": 9.6e-05,
+      "total": 0.00273027
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:21:48.782229+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p11_yorkst_quote.html",
+    "model": "gpt-6-luna",
+    "input_tokens": 23605,
+    "cache_read_tokens": 23096,
+    "cache_write_tokens": 257,
+    "output_tokens": 161,
+    "cost_usd": {
+      "input": 0.0023605,
+      "cache_read": 0.00023096,
+      "cache_write": 3.213e-05,
+      "output": 8.05e-05,
+      "total": 0.00270409
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:22:01.062083+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p12_bluehen_quote.pdf",
+    "model": "gpt-6-luna",
+    "input_tokens": 23626,
+    "cache_read_tokens": 23095,
+    "cache_write_tokens": 279,
+    "output_tokens": 179,
+    "cost_usd": {
+      "input": 0.0023626,
+      "cache_read": 0.00023095,
+      "cache_write": 3.488e-05,
+      "output": 8.95e-05,
+      "total": 0.00271793
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:43:49.196976+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p01_bluehen_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24442,
+    "cache_read_tokens": 11991,
+    "cache_write_tokens": 12199,
+    "output_tokens": 174,
+    "cost_usd": {
+      "input": 0.0024442,
+      "cache_read": 0.00011991,
+      "cache_write": 0.00152487,
+      "output": 8.7e-05,
+      "total": 0.00417599
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:44:09.931107+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p02_elmcity_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24415,
+    "cache_read_tokens": 23898,
+    "cache_write_tokens": 265,
+    "output_tokens": 170,
+    "cost_usd": {
+      "input": 0.0024415,
+      "cache_read": 0.00023898,
+      "cache_write": 3.312e-05,
+      "output": 8.5e-05,
+      "total": 0.00279861
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:44:24.013766+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p03_ivyprint_catalog.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24417,
+    "cache_read_tokens": 23898,
+    "cache_write_tokens": 267,
+    "output_tokens": 161,
+    "cost_usd": {
+      "input": 0.0024417,
+      "cache_read": 0.00023898,
+      "cache_write": 3.337e-05,
+      "output": 8.05e-05,
+      "total": 0.00279456
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:44:38.765082+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p04_harborstitch_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24435,
+    "cache_read_tokens": 23900,
+    "cache_write_tokens": 283,
+    "output_tokens": 188,
+    "cost_usd": {
+      "input": 0.0024435,
+      "cache_read": 0.000239,
+      "cache_write": 3.537e-05,
+      "output": 9.4e-05,
+      "total": 0.00281188
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:44:52.814195+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p05_maplemills_quote.pdf",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24411,
+    "cache_read_tokens": 23898,
+    "cache_write_tokens": 261,
+    "output_tokens": 150,
+    "cost_usd": {
+      "input": 0.0024411,
+      "cache_read": 0.00023898,
+      "cache_write": 3.263e-05,
+      "output": 7.5e-05,
+      "total": 0.00278771
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:45:06.683377+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p06_qtextile_quote.pdf",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24401,
+    "cache_read_tokens": 23898,
+    "cache_write_tokens": 251,
+    "output_tokens": 155,
+    "cost_usd": {
+      "input": 0.0024401,
+      "cache_read": 0.00023898,
+      "cache_write": 3.137e-05,
+      "output": 7.75e-05,
+      "total": 0.00278796
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:45:20.840476+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p07_longwharf_quote.pdf",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24404,
+    "cache_read_tokens": 23898,
+    "cache_write_tokens": 254,
+    "output_tokens": 161,
+    "cost_usd": {
+      "input": 0.0024404,
+      "cache_read": 0.00023898,
+      "cache_write": 3.175e-05,
+      "output": 8.05e-05,
+      "total": 0.00279163
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:45:39.233888+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p08_chapelst_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24436,
+    "cache_read_tokens": 23899,
+    "cache_write_tokens": 285,
+    "output_tokens": 188,
+    "cost_usd": {
+      "input": 0.0024436,
+      "cache_read": 0.00023899,
+      "cache_write": 3.562e-05,
+      "output": 9.4e-05,
+      "total": 0.00281222
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:45:53.518417+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p09_westville_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24432,
+    "cache_read_tokens": 23899,
+    "cache_write_tokens": 281,
+    "output_tokens": 158,
+    "cost_usd": {
+      "input": 0.0024432,
+      "cache_read": 0.00023899,
+      "cache_write": 3.512e-05,
+      "output": 7.9e-05,
+      "total": 0.00279632
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:46:07.710327+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p10_eastrock_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24455,
+    "cache_read_tokens": 23899,
+    "cache_write_tokens": 304,
+    "output_tokens": 174,
+    "cost_usd": {
+      "input": 0.0024455,
+      "cache_read": 0.00023899,
+      "cache_write": 3.8e-05,
+      "output": 8.7e-05,
+      "total": 0.00280949
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:46:21.894563+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p11_yorkst_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24407,
+    "cache_read_tokens": 23898,
+    "cache_write_tokens": 257,
+    "output_tokens": 163,
+    "cost_usd": {
+      "input": 0.0024407,
+      "cache_read": 0.00023898,
+      "cache_write": 3.213e-05,
+      "output": 8.15e-05,
+      "total": 0.00279331
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-15T21:48:16.600027+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\practice_docs\\p12_bluehen_quote.pdf",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24392,
+    "cache_read_tokens": 23897,
+    "cache_write_tokens": 243,
+    "output_tokens": 165,
+    "cost_usd": {
+      "input": 0.0024392,
+      "cache_read": 0.00023897,
+      "cache_write": 3.037e-05,
+      "output": 8.25e-05,
+      "total": 0.00279105
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T12:51:19.434869+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_a_harborview_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "off",
+    "input_tokens": 23762,
+    "cache_read_tokens": 11593,
+    "cache_write_tokens": 11917,
+    "output_tokens": 169,
+    "cost_usd": {
+      "input": 0.0023762,
+      "cache_read": 0.00011593,
+      "cache_write": 0.00148962,
+      "output": 8.45e-05,
+      "total": 0.00406626
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T12:51:34.869661+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_a_harborview_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24564,
+    "cache_read_tokens": 11994,
+    "cache_write_tokens": 12318,
+    "output_tokens": 180,
+    "cost_usd": {
+      "input": 0.0024564,
+      "cache_read": 0.00011994,
+      "cache_write": 0.00153975,
+      "output": 9e-05,
+      "total": 0.00420609
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T12:51:46.577787+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_b_bluehen_deposit_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "off",
+    "input_tokens": 23776,
+    "cache_read_tokens": 11505,
+    "cache_write_tokens": 12019,
+    "output_tokens": 186,
+    "cost_usd": {
+      "input": 0.0023776,
+      "cache_read": 0.00011505,
+      "cache_write": 0.00150238,
+      "output": 9.3e-05,
+      "total": 0.00408803
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T12:52:14.732293+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_b_bluehen_deposit_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24578,
+    "cache_read_tokens": 11906,
+    "cache_write_tokens": 12420,
+    "output_tokens": 166,
+    "cost_usd": {
+      "input": 0.0024578,
+      "cache_read": 0.00011906,
+      "cache_write": 0.0015525,
+      "output": 8.3e-05,
+      "total": 0.00421236
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T12:54:03.444099+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_a_harborview_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "off",
+    "input_tokens": 23851,
+    "cache_read_tokens": 11593,
+    "cache_write_tokens": 12006,
+    "output_tokens": 167,
+    "cost_usd": {
+      "input": 0.0023851,
+      "cache_read": 0.00011593,
+      "cache_write": 0.00150075,
+      "output": 8.35e-05,
+      "total": 0.00408528
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T12:54:14.686258+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_b_bluehen_deposit_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "off",
+    "input_tokens": 23800,
+    "cache_read_tokens": 23010,
+    "cache_write_tokens": 538,
+    "output_tokens": 181,
+    "cost_usd": {
+      "input": 0.00238,
+      "cache_read": 0.0002301,
+      "cache_write": 6.725e-05,
+      "output": 9.05e-05,
+      "total": 0.00276785
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T12:54:47.557518+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_a_harborview_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24653,
+    "cache_read_tokens": 11994,
+    "cache_write_tokens": 12407,
+    "output_tokens": 168,
+    "cost_usd": {
+      "input": 0.0024653,
+      "cache_read": 0.00011994,
+      "cache_write": 0.00155087,
+      "output": 8.4e-05,
+      "total": 0.00422011
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T12:54:58.664678+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_b_bluehen_deposit_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24602,
+    "cache_read_tokens": 23901,
+    "cache_write_tokens": 449,
+    "output_tokens": 174,
+    "cost_usd": {
+      "input": 0.0024602,
+      "cache_read": 0.00023901,
+      "cache_write": 5.612e-05,
+      "output": 8.7e-05,
+      "total": 0.00284234
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:02:55.760301+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_a_mlm_classstyle.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "off",
+    "input_tokens": 23688,
+    "cache_read_tokens": 11592,
+    "cache_write_tokens": 11844,
+    "output_tokens": 180,
+    "cost_usd": {
+      "input": 0.0023688,
+      "cache_read": 0.00011592,
+      "cache_write": 0.0014805,
+      "output": 9e-05,
+      "total": 0.00405522
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:03:09.828729+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_a_mlm_classstyle.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24490,
+    "cache_read_tokens": 11993,
+    "cache_write_tokens": 12245,
+    "output_tokens": 186,
+    "cost_usd": {
+      "input": 0.002449,
+      "cache_read": 0.00011993,
+      "cache_write": 0.00153062,
+      "output": 9.3e-05,
+      "total": 0.00419255
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:03:21.287491+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_b_wbc_mime_mismatch.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "off",
+    "input_tokens": 23642,
+    "cache_read_tokens": 23100,
+    "cache_write_tokens": 290,
+    "output_tokens": 188,
+    "cost_usd": {
+      "input": 0.0023642,
+      "cache_read": 0.000231,
+      "cache_write": 3.625e-05,
+      "output": 9.4e-05,
+      "total": 0.00272545
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:03:34.433453+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\my_attacks\\attack_b_wbc_mime_mismatch.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24443,
+    "cache_read_tokens": 23902,
+    "cache_write_tokens": 289,
+    "output_tokens": 161,
+    "cost_usd": {
+      "input": 0.0024443,
+      "cache_read": 0.00023902,
+      "cache_write": 3.612e-05,
+      "output": 8.05e-05,
+      "total": 0.00279995
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:14:11.579323+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e01_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24392,
+    "cache_read_tokens": 11988,
+    "cache_write_tokens": 12152,
+    "output_tokens": 160,
+    "cost_usd": {
+      "input": 0.0012404,
+      "cache_read": 0.00011988,
+      "cache_write": 0.001519,
+      "output": 8e-05,
+      "total": 0.00295928
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:14:25.695645+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e02_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24413,
+    "cache_read_tokens": 23894,
+    "cache_write_tokens": 267,
+    "output_tokens": 173,
+    "cost_usd": {
+      "input": 5.19e-05,
+      "cache_read": 0.00023894,
+      "cache_write": 3.337e-05,
+      "output": 8.65e-05,
+      "total": 0.00041071
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:14:39.001953+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e03_quote.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24422,
+    "cache_read_tokens": 23894,
+    "cache_write_tokens": 276,
+    "output_tokens": 170,
+    "cost_usd": {
+      "input": 5.28e-05,
+      "cache_read": 0.00023894,
+      "cache_write": 3.45e-05,
+      "output": 8.5e-05,
+      "total": 0.00041124
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:14:51.819893+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e04_catalog.html",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24409,
+    "cache_read_tokens": 23894,
+    "cache_write_tokens": 263,
+    "output_tokens": 162,
+    "cost_usd": {
+      "input": 5.15e-05,
+      "cache_read": 0.00023894,
+      "cache_write": 3.287e-05,
+      "output": 8.1e-05,
+      "total": 0.00040432
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:15:03.486085+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e05_quote.pdf",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24390,
+    "cache_read_tokens": 23894,
+    "cache_write_tokens": 244,
+    "output_tokens": 168,
+    "cost_usd": {
+      "input": 4.96e-05,
+      "cache_read": 0.00023894,
+      "cache_write": 3.05e-05,
+      "output": 8.4e-05,
+      "total": 0.00040304
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:15:14.327698+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e06_quote.pdf",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24391,
+    "cache_read_tokens": 23894,
+    "cache_write_tokens": 245,
+    "output_tokens": 168,
+    "cost_usd": {
+      "input": 4.97e-05,
+      "cache_read": 0.00023894,
+      "cache_write": 3.062e-05,
+      "output": 8.4e-05,
+      "total": 0.00040326
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:15:25.469103+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e07_quote.pdf",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24385,
+    "cache_read_tokens": 23894,
+    "cache_write_tokens": 239,
+    "output_tokens": 151,
+    "cost_usd": {
+      "input": 4.91e-05,
+      "cache_read": 0.00023894,
+      "cache_write": 2.987e-05,
+      "output": 7.55e-05,
+      "total": 0.00039342
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:15:36.139980+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e08_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24410,
+    "cache_read_tokens": 23895,
+    "cache_write_tokens": 263,
+    "output_tokens": 163,
+    "cost_usd": {
+      "input": 5.15e-05,
+      "cache_read": 0.00023895,
+      "cache_write": 3.287e-05,
+      "output": 8.15e-05,
+      "total": 0.00040483
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:15:47.213836+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e09_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24450,
+    "cache_read_tokens": 23895,
+    "cache_write_tokens": 303,
+    "output_tokens": 164,
+    "cost_usd": {
+      "input": 5.55e-05,
+      "cache_read": 0.00023895,
+      "cache_write": 3.787e-05,
+      "output": 8.2e-05,
+      "total": 0.00041433
+    },
+    "limitations": []
+  },
+  {
+    "timestamp": "2026-10-16T18:15:59.382820+00:00",
+    "document": "C:\\Users\\piero\\OneDrive\\Desktop\\PIERO TALLEDO\\Fall 1\\MGT 409 03 (FA26) AI Foundations for Managers\\MGT 409 AI\\Homework 6\\data\\exam_docs\\e10_email.eml",
+    "model": "gpt-6-luna",
+    "defense_mode": "on",
+    "input_tokens": 24419,
+    "cache_read_tokens": 23895,
+    "cache_write_tokens": 272,
+    "output_tokens": 154,
+    "cost_usd": {
+      "input": 5.24e-05,
+      "cache_read": 0.00023895,
+      "cache_write": 3.4e-05,
+      "output": 7.7e-05,
+      "total": 0.00040235
+    },
+    "limitations": []
+  }
+]
