@@ -125,7 +125,11 @@ check(
     all(r["configuration"] in exp.CONFIGURATIONS for r in out["observations"]),
 )
 
-# 8. Missing-data handling: missing rows have null measurement fields, not fabricated values
+# 8. Missing-data handling: missing rows have null measurement fields, not fabricated values.
+# NOTE: Priority 2's live execution (see AI_prompts.md) later filled in all 34 cells that were
+# missing at the dry-run infrastructure stage; the matrix is now fully complete (0 missing, 60
+# real). The assertions below were updated to match that completed state -- the completion
+# happened before this fix, nothing here changes any measured value.
 missing_rows = [r for r in out["observations"] if r["measured_or_reused"] == "missing_not_yet_measured"]
 check(
     "All missing rows have null token/cost fields (no fabrication)",
@@ -134,10 +138,74 @@ check(
         for r in missing_rows
     ),
 )
-check("Exactly 34 missing rows (10 code_only + 12 design_only + 12 prompt_only)", len(missing_rows) == 34)
+check("No missing rows remain (Priority 2 live execution completed all 60 cells)", len(missing_rows) == 0)
 check(
-    "Exactly 26 rows have real reused data (12 baseline + 2 code_only + 12 all_three)",
-    len([r for r in out["observations"] if r["measured_or_reused"] != "missing_not_yet_measured"]) == 26,
+    "Exactly 60 rows have real measured/reused data (12 per configuration x 5 configurations)",
+    len([r for r in out["observations"] if r["measured_or_reused"] != "missing_not_yet_measured"]) == 60,
+)
+
+# 8b. Provenance check: each configuration's measured_or_reused label distribution matches the
+# documented Priority 2 execution history exactly (not just a bare count).
+import collections
+
+provenance = collections.defaultdict(collections.Counter)
+for r in out["observations"]:
+    provenance[r["configuration"]][r["measured_or_reused"]] += 1
+
+EXPECTED_PROVENANCE = {
+    "baseline": {"reused_from_problem5": 12},
+    "code_only": {"measured": 10, "reused_from_layer_ablation": 2},
+    "design_only": {"measured": 12},
+    "prompt_only": {"measured": 12},
+    "all_three": {"reused_from_problem6": 12},
+}
+check(
+    "Provenance distribution matches Priority 2 execution history exactly "
+    "(baseline: 12 reused_from_problem5; code_only: 10 measured + 2 reused_from_layer_ablation; "
+    "design_only: 12 measured; prompt_only: 12 measured; all_three: 12 reused_from_problem6)",
+    {cfg: dict(cnt) for cfg, cnt in provenance.items()} == EXPECTED_PROVENANCE,
+    f"got {dict(provenance)}",
+)
+
+# 8c. Each configuration has exactly 12 unique documents, no duplicated (document, configuration) pair.
+pair_counts = collections.Counter((r["document"], r["configuration"]) for r in out["observations"])
+check(
+    "No (document, configuration) pair is duplicated",
+    all(count == 1 for count in pair_counts.values()),
+    f"duplicated pairs: {[p for p, c in pair_counts.items() if c != 1]}",
+)
+for cfg in exp.CONFIGURATIONS:
+    docs_in_cfg = sorted(r["document"] for r in out["observations"] if r["configuration"] == cfg)
+    check(
+        f"{cfg}: exactly 12 unique practice documents, matching data/practice_docs/ exactly",
+        docs_in_cfg == actual_files and len(set(docs_in_cfg)) == 12,
+        f"got {docs_in_cfg}",
+    )
+
+# 8d. Independent cost-total recalculation: the five configuration totals sum to the previously
+# reported $0.04938505, directly from the stored per-row cost_usd values (no re-derivation from
+# token counts here -- that is covered by check #6's fixture formula test above).
+CONFIG_TOTALS_EXPECTED = {
+    "baseline": 0.01727542,
+    "code_only": 0.00976476,
+    "design_only": 0.00733368,
+    "prompt_only": 0.00754783,
+    "all_three": 0.00746336,
+}
+config_totals_actual = collections.defaultdict(float)
+for r in out["observations"]:
+    if r["cost_usd"] is not None:
+        config_totals_actual[r["configuration"]] += r["cost_usd"]
+for cfg, expected_total in CONFIG_TOTALS_EXPECTED.items():
+    check(
+        f"{cfg}: summed cost_usd matches previously reported total (±$0.000001)",
+        abs(config_totals_actual[cfg] - expected_total) < 1e-6,
+        f"got {config_totals_actual[cfg]}",
+    )
+check(
+    "Grand total across all 5 configurations equals $0.04938505 (±$0.000001)",
+    abs(sum(config_totals_actual.values()) - 0.04938505) < 1e-6,
+    f"got {sum(config_totals_actual.values())}",
 )
 
 # 9. Historical results unchanged (hash check against known baselines)
